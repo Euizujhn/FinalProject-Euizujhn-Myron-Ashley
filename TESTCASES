@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
-public class TestRecipes {
+public class TESTCASES {
 
     @Test
     void getIngredient1(){
