@@ -24,10 +24,10 @@ public class SearcherGUI extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
+        //Opening Search
         VBox parent = new VBox();
-
         Label MealTitle = new Label("The Meal Database");
-
         MealTitle.setFont(Font.font("Times New Roman", FontWeight.BOLD, 24));
         parent.getChildren().add(MealTitle);
         HBox urlArea = new HBox(new Label("Enter Meal to Received Recipe"));
@@ -36,19 +36,23 @@ public class SearcherGUI extends Application {
         parent.getChildren().add(urlArea);
         Button button = new Button("Find Recipe");
 
+        //Recipe Search Vbox
         button.setOnAction(event -> {
             String input = textField.getText();
-            VBox root = new VBox();
-            root.getChildren().add(new Label(RecipeFormat.IngredientsGUI(input)));
-            root.getChildren().add(new Label("Would you like to add to favorites?"));
+            VBox favoriteAddRoot = new VBox();
+            favoriteAddRoot.getChildren().add(new Label(RecipeFormat.IngredientsGUI(input)));
+
+            //Add Favorite Button
+            favoriteAddRoot.getChildren().add(new Label("Would you like to add to favorites?"));
             Button button2 = new Button("Yes");
             button2.setOnAction(event2 -> {Favorite.add(RecipeFormat.IngredientsGUI(input)); stage.setScene(parent.getScene()); stage.show();});
-            root.getChildren().add(button2);
+            favoriteAddRoot.getChildren().add(button2);
             Button button3 = new Button("No");
             button3.setOnAction(event3 -> {stage.setScene(parent.getScene()); stage.show();});
-            root.getChildren().add(button3);
-            Button button4 = new Button("Check Instructions");
+            favoriteAddRoot.getChildren().add(button3);
 
+            //Instructions Button
+            Button button4 = new Button("Check Instructions");
             button4.setOnAction(eventnew ->{
                 VBox instructionRoot = new VBox();
                 ScrollPane scrollPane = new ScrollPane();
@@ -57,6 +61,8 @@ public class SearcherGUI extends Application {
                 Label InstructionLabel = new Label(RecipeFormat.Instructions(input));
                 InstructionLabel.setWrapText(true);
                 instructionRoot.getChildren().add(InstructionLabel);
+
+                //Go Back
                 Button buttonBack = new Button("Go Back");
                 buttonBack.setOnAction(event3 -> {stage.setScene(parent.getScene()); stage.show();});
                 instructionRoot.getChildren().add(buttonBack);
@@ -66,37 +72,36 @@ public class SearcherGUI extends Application {
                 stage.setScene(scene);
                 stage.show();
             });
-            root.getChildren().add(button4);
-            Scene scene = new Scene(root, 400, 300);
+            favoriteAddRoot.getChildren().add(button4);
+            Scene scene = new Scene(favoriteAddRoot, 400, 300);
             stage.setScene(scene);
             stage.show();
         });
 
+        //Check Favorites Button
         Button button1 = new Button("Check Favorites");
         button1.setOnAction(event2 -> {
-            VBox root2 = new VBox();
+            VBox FavoriteCheckRoot = new VBox();
             ScrollPane scrollPane = new ScrollPane();
-            scrollPane.setContent(root2);
+            scrollPane.setContent(FavoriteCheckRoot);
             scrollPane.setFitToWidth(true);
-
             if (Favorite.isEmpty()){
-                root2.getChildren().add(new Label("Nothing has been added"));
+                FavoriteCheckRoot.getChildren().add(new Label("Nothing has been added"));
                 Button button3 = new Button("Go Back");
                 button3.setOnAction(event3 -> {stage.setScene(parent.getScene()); stage.show();});
-                root2.getChildren().add(button3);
-                Scene scene = new Scene(root2, 400, 300);
+                FavoriteCheckRoot.getChildren().add(button3);
+                Scene scene = new Scene(FavoriteCheckRoot, 400, 300);
                 stage.setScene(scene);
                 stage.show();
             } else {
                for (int i = 0; Favorite.get(i) != null; i++) {
-                   root2.getChildren().add(new Label(Favorite.get(i)));
+                   FavoriteCheckRoot.getChildren().add(new Label(Favorite.get(i)));
                    Button button3 = new Button("Go Back");
                    button3.setOnAction(event3 -> {
                        stage.setScene(parent.getScene());
                        stage.show();
                    });
-
-                   root2.getChildren().add(button3);
+                   FavoriteCheckRoot.getChildren().add(button3);
                    BorderPane ScrollFunction = new BorderPane();
                    ScrollFunction.setCenter(scrollPane);
                    Scene scene = new Scene(ScrollFunction, 600, 600);
