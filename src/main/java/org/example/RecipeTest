@@ -61,5 +61,81 @@ public class RecipieTest extends RecipeAPI{
             System.err.println("Wrong");
             return false;
         }
+
+    }
+
+    public static boolean InstructionTest(String FoodKey){
+        try {
+            JSONObject FoodIngredients = getFoodInfo(FoodKey);
+            String List = (String) FoodIngredients.get("strInstructions");
+            int WordCount = 5;
+            String[] words = List.split("\\s+");
+            StringBuilder extractedWords = new StringBuilder();
+            for (int i = 0; i < WordCount && i < words.length; i++) {
+                extractedWords.append(words[i]);
+                if (i < WordCount - 1 && i < words.length - 1) {
+                    extractedWords.append(" ");
+                }
+            }
+            if (extractedWords.toString().equals("Season the salmon, then rub")){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("Wrong");
+            return false;
+        }
+
+    }
+
+    public static boolean InstructionTest2(String FoodKey){
+        try {
+            JSONObject FoodIngredients = getFoodInfo(FoodKey);
+            String List = (String) FoodIngredients.get("strInstructions");
+            int WordCount = 7;
+            String[] words = List.split("\\s+");
+            StringBuilder extractedWords = new StringBuilder();
+            for (int i = 0; i < WordCount && i < words.length; i++) {
+                extractedWords.append(words[i]);
+                if (i < WordCount - 1 && i < words.length - 1) {
+                    extractedWords.append(" ");
+                }
+            }
+            if (extractedWords.toString().equals("Place the pumpkin in a large saucepan,")){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("Wrong");
+            return false;
+        }
+
+    }
+
+    public static boolean InstructionTest3(String FoodKey){
+        try {
+            JSONObject FoodIngredients = getFoodInfo(FoodKey);
+            String List = (String) FoodIngredients.get("strInstructions");
+            int WordCount = 6;
+            String[] words = List.split("\\s+");
+            StringBuilder extractedWords = new StringBuilder();
+            for (int i = 0; i < WordCount && i < words.length; i++) {
+                extractedWords.append(words[i]);
+                if (i < WordCount - 1 && i < words.length - 1) {
+                    extractedWords.append(" ");
+                }
+            }
+            if (extractedWords.toString().equals("Take a large pot or wok,")){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("Wrong");
+            return false;
+        }
+
     }
 }
