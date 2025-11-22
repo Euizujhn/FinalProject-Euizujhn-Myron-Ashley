@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class RecipeFormat extends RecipeAPI {
 
-
+    //Instructions Print
     public static String Instructions(String FoodKey){
       try {
         JSONObject FoodInformation = getFoodInfo(FoodKey);
@@ -18,7 +18,7 @@ public class RecipeFormat extends RecipeAPI {
     return null;
     }
 
-
+    //Ingredients Print
     public static String Ingredients(String FoodKey){
         try {
             JSONObject FoodIngredients = getFoodInfo(FoodKey);
@@ -41,21 +41,7 @@ public class RecipeFormat extends RecipeAPI {
     }
 
 
-    public static String InstructionsGUI(String FoodKey){
-        try {
-            JSONObject FoodInformation = getFoodInfo(FoodKey);
-            String instructions = (String) FoodInformation.get("strInstructions");
-
-            return instructions;
-        } catch (Exception e) {
-            // e.printStackTrace();
-        }
-        return null;
-    }
-
-
-
-
+    //Ingredients GUI Output
     public static String IngredientsGUI(String FoodKey){
         try{
             JSONObject FoodIngredients = getFoodInfo(FoodKey);
