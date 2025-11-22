@@ -1,0 +1,57 @@
+import org.example.RecipeFormat;
+import org.example.RecipieTest;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+
+public class TestRecipes {
+
+    @Test
+    void getIngredient1(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.IngredientsTest1("Curry");
+        Assertions.assertTrue(testRecipe);
+    }
+
+    @Test
+    void getMeasure1(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.IngredientsTest2("Curry");
+        Assertions.assertTrue(testRecipe);
+    }
+
+    @Test
+    void getIngredient2(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.IngredientsTest3("spaghetti bolognese");
+        Assertions.assertTrue(testRecipe);
+    }
+
+    @Test
+    void getMeasure2(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.IngredientsTest4("spaghetti bolognese");
+        Assertions.assertTrue(testRecipe);
+    }
+
+    @Test
+    void getInstructions(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.InstructionTest("Salad");
+        Assertions.assertTrue(testRecipe);
+    }
+
+    @Test
+    void getInstructions2(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.InstructionTest2("Pumpkin Pie");
+        Assertions.assertTrue(testRecipe);
+    }
+
+    @Test
+    void getInstructions3(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.InstructionTest3("Chicken");
+        Assertions.assertTrue(testRecipe);
+    }
+}
