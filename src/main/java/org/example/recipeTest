@@ -1,0 +1,29 @@
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RecipeTest<Recipe> {
+
+    @Test
+    void testRecipeCreation() {
+        Ingredient flour = new Ingredient("Flour", 2.0, "cups");
+        Ingredient sugar;
+        sugar = new Ingredient("Sugar", 1.0, "cup");
+        Recipe recipe = new Recipe("Cake", List.of(flour, sugar), "Mix and bake at 350°F");
+
+        assertEquals("Cake", recipe.getClass());
+        assertEquals(2, recipe.getClass().size());
+        assertTrue(recipe.toString().contains("bake"));
+    }
+
+    @Test
+    void testHasIngredient() {
+        Ingredient butter = new Ingredient("Butter", 1.0, "stick");
+        Recipe recipe;
+        recipe = new Recipe("Cookies", List.of(butter), "Mix ingredients.");
+
+        assertTrue(recipe.hashCode("butter"));
+        assertFalse(recipe.hashCode("flour"));
+    }
+}
+
