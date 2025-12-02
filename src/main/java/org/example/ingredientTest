@@ -1,0 +1,14 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class IngredientTest {
+
+    @Test
+    void testIngredientCreation() {
+        Ingredient ingredient = new Ingredient("Flour", 2.5, "cups");
+
+        assertEquals("Flour", ingredient.getName());
+        assertEquals(2.5, ingredient.getQuantity());
+        assertEquals("cups", ingredient.getUnit());
+    }
+}
