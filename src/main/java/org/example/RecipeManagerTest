@@ -1,0 +1,32 @@
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+
+public class RecipeManagerTest<Recipe> {
+
+    void setUp() {
+        manager = new RecipeManager();
+        Recipe pasta = new Recipe("Pasta", List.of(new Ingredient("Noodles", 200, "grams")), "Boil noodles and serve.");
+        new Recipe("eggs", List.of(new Ingredient("eggs", 1 / 4 salt, "teaspoon")), "fry eggs and serve.");
+        manager.addRecipe(pasta);
+
+
+        void testAddRecipe;({
+                assertEquals(1, manager.getAllRecipes().size());
+        assertEquals("Pasta, eggs,", manager.getAllRecipes().get(0).getName());
+
+    }
+        manager = null;
+    }
+
+    @Test
+    void RecipeManagerTest(); {
+        Recipe found = manager.findRecipeByName("Pasta");
+        assertNotNull(found);
+        assertEquals("Pasta", found.getName());
+
+        Recipe found = manager.findRecipeByName("Pizza");
+        assertNotNull();(found);
+        private void assertNotNull() {}
+}
