@@ -7,37 +7,37 @@ import org.junit.jupiter.api.Test;
 public class TestRecipes {
 
     @Test
-    void getIngredient1(){
+    void getIngredient(){
         RecipieTest test = new RecipieTest();
-        boolean testRecipe = test.IngredientsTest1("Curry");
+        boolean testRecipe = test.IngredientsTest("Curry");
         Assertions.assertTrue(testRecipe);
     }
 
     @Test
-    void getMeasure1(){
+    void getMeasure(){
         RecipieTest test = new RecipieTest();
-        boolean testRecipe = test.IngredientsTest2("Curry");
+        boolean testRecipe = test.MeasureTest("Curry");
         Assertions.assertTrue(testRecipe);
     }
 
     @Test
     void getIngredient2(){
         RecipieTest test = new RecipieTest();
-        boolean testRecipe = test.IngredientsTest3("spaghetti bolognese");
+        boolean testRecipe = test.IngredientsTest2("spaghetti bolognese");
         Assertions.assertTrue(testRecipe);
     }
 
     @Test
     void getMeasure2(){
         RecipieTest test = new RecipieTest();
-        boolean testRecipe = test.IngredientsTest4("spaghetti bolognese");
+        boolean testRecipe = test.MeasureTest2("spaghetti bolognese");
         Assertions.assertTrue(testRecipe);
     }
 
     @Test
     void getInstructions(){
         RecipieTest test = new RecipieTest();
-        boolean testRecipe = test.InstructionTest("Salad");
+        boolean testRecipe = test.InstructionTest("Pancakes");
         Assertions.assertTrue(testRecipe);
     }
 
@@ -52,6 +52,27 @@ public class TestRecipes {
     void getInstructions3(){
         RecipieTest test = new RecipieTest();
         boolean testRecipe = test.InstructionTest3("Chicken");
+        Assertions.assertTrue(testRecipe);
+    }
+
+    @Test
+    void getMealTitle(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.MealTitleTest("Salad");
+        Assertions.assertTrue(testRecipe);
+    }
+
+    @Test
+    void getCategory(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.CategoryTest("Salad");
+        Assertions.assertTrue(testRecipe);
+    }
+
+    @Test
+    void getArea(){
+        RecipieTest test = new RecipieTest();
+        boolean testRecipe = test.AreaTest("Salad");
         Assertions.assertTrue(testRecipe);
     }
 }
