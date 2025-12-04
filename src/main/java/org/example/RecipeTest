@@ -3,7 +3,7 @@ package org.example;
 import org.json.simple.JSONObject;
 
 public class RecipieTest extends RecipeAPI{
-    public static boolean IngredientsTest1(String FoodKey){
+    public static boolean IngredientsTest(String FoodKey){
         try {
             JSONObject FoodIngredients = getFoodInfo(FoodKey);
             String List = (String) FoodIngredients.get("strIngredient" + 1);
@@ -18,7 +18,7 @@ public class RecipieTest extends RecipeAPI{
         }
     }
 
-    public static boolean IngredientsTest2(String FoodKey){
+    public static boolean MeasureTest(String FoodKey){
         try {
             JSONObject FoodIngredients = getFoodInfo(FoodKey);
             String List = (String) FoodIngredients.get("strMeasure" + 1);
@@ -33,7 +33,7 @@ public class RecipieTest extends RecipeAPI{
         }
     }
 
-    public static boolean IngredientsTest3(String FoodKey){
+    public static boolean IngredientsTest2(String FoodKey){
         try {
             JSONObject FoodIngredients = getFoodInfo(FoodKey);
             String List = (String) FoodIngredients.get("strIngredient" + 1);
@@ -48,7 +48,7 @@ public class RecipieTest extends RecipeAPI{
         }
     }
 
-    public static boolean IngredientsTest4(String FoodKey){
+    public static boolean MeasureTest2(String FoodKey){
         try {
             JSONObject FoodIngredients = getFoodInfo(FoodKey);
             String List = (String) FoodIngredients.get("strMeasure" + 1);
@@ -77,7 +77,7 @@ public class RecipieTest extends RecipeAPI{
                     extractedWords.append(" ");
                 }
             }
-            if (extractedWords.toString().equals("Season the salmon, then rub")){
+            if (extractedWords.toString().equals("Put the flour, eggs, milk,")){
                 return true;
             } else {
                 return false;
@@ -138,4 +138,54 @@ public class RecipieTest extends RecipeAPI{
         }
 
     }
+
+    public static boolean MealTitleTest(String FoodKey){
+        try {
+            JSONObject FoodIngredients = getFoodInfo(FoodKey);
+            String List = (String) FoodIngredients.get("strMeal");
+            if (List.equals("Noodle bowl salad")){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("Wrong");
+            return false;
+        }
+
+    }
+
+
+    public static boolean CategoryTest(String FoodKey){
+        try {
+            JSONObject FoodIngredients = getFoodInfo(FoodKey);
+            String List = (String) FoodIngredients.get("strCategory");
+            if (List.equals("Seafood")){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("Wrong");
+            return false;
+        }
+
+    }
+
+    public static boolean AreaTest(String FoodKey){
+        try {
+            JSONObject FoodIngredients = getFoodInfo(FoodKey);
+            String List = (String) FoodIngredients.get("strArea");
+            if (List.equals("Vietnamese")){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("Wrong");
+            return false;
+        }
+
+    }
+
 }
