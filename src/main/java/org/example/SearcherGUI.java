@@ -1,4 +1,4 @@
-  package org.example;
+package org.example;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -32,7 +32,7 @@ public class SearcherGUI extends Application {
         parent.setAlignment(Pos.TOP_CENTER);
         parent.setPrefSize(400,200);
         parent.getChildren().add(MealTitle);
-        Label urlArea = new Label("Enter Meal to Received the Recipe");
+        Label urlArea = new Label("Enter Meal to Received the Recipe\n  Specify for the Best Results");
         urlArea.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
         TextField textField = new TextField();
         textField.setAlignment(Pos.CENTER);
@@ -95,6 +95,15 @@ public class SearcherGUI extends Application {
                 Label InstructionLabel = new Label(RecipeFormat.Instructions(input));
                 InstructionLabel.setWrapText(true);
                 instructionRoot.getChildren().add(InstructionLabel);
+
+                //CUSTOM GUI
+                BackgroundFill Instructioncolors = new BackgroundFill(
+                        Color.YELLOWGREEN,
+                        CornerRadii.EMPTY,
+                        Insets.EMPTY
+                );
+                Background Instructionbackground = new Background(Instructioncolors);
+                instructionRoot.setBackground(Instructionbackground);
 
                 //Go Back
                 Button buttonBack = new Button("Go Back");
